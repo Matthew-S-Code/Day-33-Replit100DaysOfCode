@@ -1,0 +1,40 @@
+import os, time
+
+toDoList = []
+
+def printList():
+  print()
+  for item in toDoList:
+    print("\033[0;34m", item, "\033[0m" )
+  print()
+
+
+title = "YOUR TODO LIST"
+print(f"\033[0;32m {title:^45}","\033[0m")
+print("\n")
+
+time.sleep(1.5)
+os.system("clear")
+
+
+
+while True:
+  schedule = input("View your 'to do' list or add or remove an item?\n"
+  "To clear the screen just type 'clear' \n"
+   ": ")
+  
+  if schedule == "add" or schedule == "Add":
+    item = input("What would you like to add? ")
+    toDoList.append(item)
+  elif schedule =="remove" or schedule == "Remove":
+    item = input("What would you like to remove? ")
+    if item in toDoList:
+      toDoList.remove(item)
+    else:
+      print(f"{item} was not in the list")
+    printList()
+  elif schedule == "view" or schedule == "View":
+    printList()
+  else: 
+    time.sleep(1)
+    os.system("clear")
